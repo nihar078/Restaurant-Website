@@ -1,6 +1,7 @@
 import React from "react";
 import Card from "../UI/Card";
-import Classes from './AvailabelMeals.module.css'
+import MealItem from "./MealItem/MealItem";
+import Classes from "./AvailabelMeals.module.css";
 
 const DUMMY_MEALS = [
   {
@@ -30,7 +31,14 @@ const DUMMY_MEALS = [
 ];
 
 const AvailabeiMeals = () => {
-  const MealList = DUMMY_MEALS.map((meal) => <li>{meal.name}</li>);
+  const MealList = DUMMY_MEALS.map((meal) => (
+    <MealItem
+      key={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
+  ));
 
   return (
     <div className={Classes.meals}>
